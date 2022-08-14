@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--CSS loading-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <title>Movie List</title>
+
+</head>
+
+<body>
+  <!-- navbar-->
+  <nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Movie List</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./favorite.html">Favorite</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  
+  <div class="container mt-5">
+    <div class="d-flex justify-content-between">
+      <!-- search bar-->
+      <div class="col-sm-11 mb-2">
+        <!-- form 綁定id, 可綁定監聽器產生submit事件-->
+        <form class="row gx-3 gy-2 align-items-center" id="search-form">
+          <div class="col-sm-3">
+            <label class="visually-hidden" for="specificSizeInputName">Search Keyword</label>
+            <!-- input id = search-input -->
+            <input type="text" class="form-control" id="search-input" placeholder="Keyword...">
+          </div>
+          <div class="col-auto">
+            <!-- button id = search-submit -->
+            <button type="submit" class="btn btn-primary" id="search-submit">Search</button>
+          </div>
+        </form>
+      </div>  
+      <!-- table OR list-->
+      <div class="col-sm-1 mb-2 d-flex " id="mode-change">
+        <i class="fa fa-th btn btn-lg px-2 btn-show-card active" data-mode="card" aria-hidden="true"></i>
+        <i class="fa fa-bars btn btn-lg px-2 btn-show-list" data-mode="list" aria-hidden="true"></i>
+      </div>
+    </div>
+    
+
+    <!-- create a data-panel -->
+    <div class="row" id="data-panel">
+      <!-- Render Movie List -->
+
+    </div>
+  </div>
+  <!-- Movie Modal (don't have to in the container) -->
+  <!-- modal id must be the same with button data-bs-target-->
+  <div class="modal fade modal-lg" id="movie-modal" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <!-- add id for js-->
+          <h5 class="modal-title" id="movie-modal-title">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <!-- add id for js-->
+        <div class="modal-body" id="movie-modal-body">
+          <div class="row">
+            <div class="col-sm-8" id="movie-modal-image">
+              <img src="https://movie-list.alphacamp.io/posters/c9XxwwhPHdaImA2f1WEfEsbhaFB.jpg" alt="movie-poster"
+                class="img-fluid">
+            </div>
+            <div class="col-sm-4">
+              <p><em id="movie-modal-date">release date:2020/12/5</em></p>
+              <p id="movie-modal-description">this is a movie</p>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Paginator, paginator and navbar don't have to in the container -->
+  <nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center" id="paginator">
+      <!-- renderPaginator-->
+    </ul>
+  </nav>
+
+
+  <!--AXIOS first-->
+  <script src="https://kit.fontawesome.com/141c15fc38.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <!--bootstrap contain popper.js and bootstrap.js-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+  <!-- js will use AXIOS, so js is behind the AXIOS.-->
+  <script src="./index.js"></script>
+</body>
+
+</html>
